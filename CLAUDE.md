@@ -37,4 +37,4 @@ Just open `index.html` in a browser. No build tools, no server needed.
 
 ## Deployment
 Push to `main` and GitHub Actions handles the rest. The live URL is:
-`https://<owner>.github.io/palette-pals/`
+`https://jtg21.github.io/palette-pals/`

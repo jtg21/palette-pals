@@ -12,6 +12,8 @@ A color harmony palette generator. Generates beautiful 5-color palettes using co
 
 ## Live Demo
 
+**https://jtg21.github.io/palette-pals/**
+
 Deployed automatically via GitHub Actions to GitHub Pages.
 
 ## Infrastructure
