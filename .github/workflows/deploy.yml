@@ -1,0 +1,45 @@
+# Infrastructure as Code: GitHub Pages deployment
+# This workflow automatically deploys the site to GitHub Pages on every push to main.
+# It uses the official GitHub Pages actions for a clean, token-free deployment.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+  # Allow manual deploys from the Actions tab
+  workflow_dispatch:
+
+# Grant GITHUB_TOKEN permissions to deploy to Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only allow one deployment at a time
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

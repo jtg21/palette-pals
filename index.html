@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palette Pals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Palette Pals</h1>
+    <p class="subtitle">Color harmony generator</p>
+  </header>
+
+  <div class="controls">
+    <select id="harmony-type">
+      <option value="analogous">Analogous</option>
+      <option value="complementary">Complementary</option>
+      <option value="triadic">Triadic</option>
+      <option value="split-complementary">Split Complementary</option>
+      <option value="random">Random</option>
+    </select>
+    <button id="generate-btn">Generate <kbd>Space</kbd></button>
+  </div>
+
+  <div id="palette" class="palette"></div>
+
+  <div id="toast" class="toast">Copied!</div>
+
+  <footer>
+    <p>Click a swatch to copy its hex code. Press <kbd>Space</kbd> for a new palette.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

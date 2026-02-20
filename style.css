@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f0f0f;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: #666;
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+select {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button {
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background: #e0e0e0;
+  color: #0f0f0f;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+button:hover {
+  background: #fff;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 0.75rem;
+  font-family: inherit;
+  margin-left: 0.25rem;
+}
+
+.palette {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+  width: 100%;
+}
+
+.swatch {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+  height: 260px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.swatch:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.swatch-hex {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  width: fit-content;
+}
+
+.swatch.light .swatch-hex {
+  color: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.swatch.dark .swatch-hex {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.swatch-name {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  opacity: 0.7;
+}
+
+.swatch.light .swatch-name {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.swatch.dark .swatch-name {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #e0e0e0;
+  color: #0f0f0f;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+footer {
+  margin-top: 2.5rem;
+  color: #444;
+  font-size: 0.85rem;
+}
+
+footer kbd {
+  background: #222;
+  color: #888;
+  border: 1px solid #333;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 1.8rem; }
+  .swatch { min-width: 80px; height: 200px; }
+  .palette { gap: 0.5rem; }
+}
