@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Art Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="../" class="back">&larr; Tiny Tools</a>
+    <h1>ASCII Art Converter</h1>
+    <p class="subtitle">Drop an image, get ASCII art</p>
+  </header>
+
+  <div class="controls">
+    <div class="control-group">
+      <label for="width-slider">Width</label>
+      <input type="range" id="width-slider" min="40" max="200" value="100">
+      <span id="width-value">100</span> chars
+    </div>
+    <div class="control-group">
+      <label for="charset-select">Detail</label>
+      <select id="charset-select">
+        <option value="standard">Standard</option>
+        <option value="detailed">Detailed</option>
+        <option value="blocks">Block elements</option>
+        <option value="minimal">Minimal</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="color-toggle">Color</label>
+      <input type="checkbox" id="color-toggle">
+    </div>
+    <div class="control-group">
+      <label for="invert-toggle">Invert</label>
+      <input type="checkbox" id="invert-toggle">
+    </div>
+    <button id="copy-btn" disabled>Copy to Clipboard</button>
+  </div>
+
+  <div id="drop-zone" class="drop-zone">
+    <div class="drop-zone-content">
+      <div class="drop-icon">📷</div>
+      <p>Drag &amp; drop an image here</p>
+      <p class="drop-hint">or click to browse</p>
+      <input type="file" id="file-input" accept="image/*" hidden>
+    </div>
+  </div>
+
+  <div id="preview-container" class="preview-container hidden">
+    <canvas id="source-canvas" hidden></canvas>
+    <pre id="ascii-output" class="ascii-output"></pre>
+  </div>
+
+  <div id="toast" class="toast">Copied!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
