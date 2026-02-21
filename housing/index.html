@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Value Estimator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="../" class="back">&larr; Tiny Tools</a>
+    <h1>Home Value Estimator</h1>
+    <p class="subtitle">Find listings &amp; estimate sale prices from comparable sales</p>
+  </header>
+
+  <!-- API Key Setup -->
+  <div id="api-setup" class="api-setup">
+    <div class="setup-card">
+      <h2>Connect to RapidAPI</h2>
+      <p>This app uses the <strong>Realty in US</strong> API on RapidAPI (free tier available).</p>
+      <ol>
+        <li>Go to <a href="https://rapidapi.com/apidojo/api/realty-in-us" target="_blank">Realty in US on RapidAPI</a></li>
+        <li>Sign up / log in (free)</li>
+        <li>Subscribe to the free plan</li>
+        <li>Copy your API key and paste it below</li>
+      </ol>
+      <div class="key-input-row">
+        <input type="password" id="api-key-input" placeholder="Paste your RapidAPI key">
+        <button id="save-key-btn">Save &amp; Start</button>
+      </div>
+      <p class="hint">Your key is stored in your browser only and never sent anywhere except RapidAPI.</p>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="app hidden">
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Enter ZIP code (e.g. 78701)">
+      <button id="search-btn">Search</button>
+      <button id="change-key-btn" class="text-btn">Change API Key</button>
+    </div>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>Searching listings &amp; pulling comps&hellip;</span>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+
+    <div id="results" class="results hidden">
+      <div class="results-header">
+        <h2 id="results-title"></h2>
+        <div class="market-summary" id="market-summary"></div>
+      </div>
+      <div id="listings-grid" class="listings-grid"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Copied!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -11,6 +11,8 @@ palette/                          # Palette Pals color generator
   index.html, style.css, app.js
 ascii-art/                        # Image to ASCII art converter
   index.html, style.css, app.js
+housing/                          # Home value estimator (uses RapidAPI)
+  index.html, style.css, app.js
 .github/workflows/deploy.yml      # IaC — auto-deploys to Pages on push
 CLAUDE.md                         # This file
 README.md                         # Human-facing docs
@@ -42,6 +44,22 @@ README.md                         # Human-facing docs
 - Color mode: wraps each character in a `<span>` with `rgb()` color from the source pixel
 - Invert mode: flips brightness mapping
 - Supports drag-and-drop, file picker, and clipboard paste
+
+## App: Home Value Estimator (`housing/`)
+- Searches active listings and recently sold homes by ZIP code
+- Uses RapidAPI "Realty in US" API (`realty-in-us.p.rapidapi.com`)
+- User provides their own API key (stored in localStorage, never sent elsewhere)
+- API endpoints:
+  - `POST /properties/v3/list` with `status: ['for_sale']` — active listings
+  - `POST /properties/v3/list` with `status: ['sold']` — recently sold homes
+- Comp analysis algorithm:
+  1. For each active listing, finds recently sold homes within ±30% sqft
+  2. Sorts comps by sqft similarity (closest match first), takes top 5
+  3. Calculates weighted avg $/sqft (weight = inverse of sqft difference ratio)
+  4. Estimated price = listing sqft × weighted avg $/sqft
+- Shows market summary: active count, recent sales count, median sold price, avg $/sqft
+- Color-coded estimates: green (possibly underpriced), red (possibly overpriced), white (fair)
+- Expandable comps list for each listing
 
 ## IaC: GitHub Actions
 The workflow at `.github/workflows/deploy.yml`:

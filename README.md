@@ -19,6 +19,14 @@ Upload any image and convert it to ASCII art — no AI, pure pixel math.
 - Color mode preserves original image colors
 - Invert mode for light backgrounds
 
+### Home Value Estimator
+Search active listings by ZIP code and estimate sale prices from comparable sales.
+- Uses [Realty in US API](https://rapidapi.com/apidojo/api/realty-in-us) on RapidAPI (free tier available)
+- Finds comparable recently sold homes (±30% sqft) for each listing
+- Estimates sale price using weighted $/sqft from top 5 comps
+- Market summary with median sold price and average $/sqft
+- Color-coded: green = possibly underpriced, red = possibly overpriced
+
 ## Infrastructure
 
 Deployed automatically via **GitHub Actions** (Infrastructure as Code):
